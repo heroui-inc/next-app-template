@@ -9,17 +9,17 @@
     "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
   },
   "dependencies": {
-    "@heroui/button": "2.2.16",
-    "@heroui/code": "2.2.12",
-    "@heroui/input": "2.4.16",
-    "@heroui/kbd": "2.2.12",
-    "@heroui/link": "2.2.13",
-    "@heroui/listbox": "2.3.15",
-    "@heroui/navbar": "2.2.14",
-    "@heroui/snippet": "2.2.17",
-    "@heroui/switch": "2.2.14",
-    "@heroui/system": "2.4.12",
-    "@heroui/theme": "2.4.12",
+    "@heroui/button": "2.2.17-beta.1",
+    "@heroui/code": "2.2.13-beta.1",
+    "@heroui/input": "2.4.17-beta.1",
+    "@heroui/kbd": "2.2.13-beta.1",
+    "@heroui/link": "2.2.14-beta.1",
+    "@heroui/listbox": "2.3.16-beta.1",
+    "@heroui/navbar": "2.2.15-beta.1",
+    "@heroui/snippet": "2.2.18-beta.1",
+    "@heroui/switch": "2.2.15-beta.1",
+    "@heroui/system": "2.4.13-beta.2",
+    "@heroui/theme": "2.4.13-beta.2",
     "@react-aria/ssr": "3.9.7",
     "@react-aria/visually-hidden": "3.8.20",
     "clsx": "2.1.1",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@next/eslint-plugin-next": "15.0.4",
     "@react-types/shared": "3.25.0",
+    "@tailwindcss/postcss": "4.0.12",
     "@types/node": "20.5.7",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
@@ -52,7 +53,7 @@
     "postcss": "8.4.49",
     "prettier": "3.3.3",
     "tailwind-variants": "0.3.0",
-    "tailwindcss": "3.4.16",
+    "tailwindcss": "4.0.12",
     "typescript": "5.6.3"
   }
 }
