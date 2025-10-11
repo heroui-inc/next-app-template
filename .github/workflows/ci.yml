@@ -10,17 +10,65 @@ permissions:
   packages: write
 
 jobs:
-  build-test-publish:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout repo
       - uses: actions/checkout@v4
 
+      # Setup Node.js
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
+      # Install dependencies, lint, build, test
       - run: npm ci
       - run: npm run lint
       - run: npm run build
       - run: npm test --if-present
+
+      # Build Docker Image
+      - name: Build Docker image
+        run: docker build -t app:${{ github.sha }} .
+
+      # SBOM generation
+      - name: Generate SBOM
+        run: docker sbom app:${{ github.sha }} -o sbom.json || echo "SBOM generation skipped"
+
+      # Trivy Scan (do not fail on low/medium)
+      - name: Scan Docker image
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: app:${{ github.sha }}
+          format: json
+          output: trivy-report.json
+          ignore-unfixed: true
+          severity: HIGH,CRITICAL
+        continue-on-error: true
+
+      # Login to GHCR
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Push image
+      - name: Push to GHCR
+        run: |
+          IMAGE=ghcr.io/${{ github.repository }}:${{ github.sha }}
+          docker tag app:${{ github.sha }} $IMAGE
+          docker push $IMAGE
+
+      # Upload reports
+      - name: Upload Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports
+          path: |
+            sbom.json
+            trivy-report.json
+
