@@ -1,6 +1,7 @@
 {
   "name": "next-app-template",
   "version": "0.0.1",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
