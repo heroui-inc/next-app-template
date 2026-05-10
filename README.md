@@ -1,12 +1,12 @@
 # Next.js & HeroUI Template
 
-This is a template for creating applications using Next.js 15 (app directory) and HeroUI (v3).
+This is a template for creating applications using Next.js 16 (app directory) and HeroUI (v3).
 
 [Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
 
 ## Technologies Used
 
-- [Next.js 15](https://nextjs.org/docs/getting-started)
+- [Next.js 16](https://nextjs.org/docs/getting-started)
 - [HeroUI v3](https://heroui.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Tailwind Variants](https://tailwind-variants.org)

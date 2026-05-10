@@ -1,6 +1,4 @@
-"use client";
-
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import clsx from "clsx";
 
@@ -11,6 +9,7 @@ export interface ThemeSwitchProps {
 }
 
 export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
+  const [isMounted, setIsMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
   const isLight = resolvedTheme === "light";
@@ -18,6 +17,13 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
   const handleToggle = () => {
     setTheme(isLight ? "dark" : "light");
   };
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+
+  if (!isMounted) return <div aria-hidden className="w-6 h-6" />;
 
   return (
     <button
