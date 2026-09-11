@@ -10,8 +10,8 @@
 		"lint": "eslint --fix"
 	},
 	"dependencies": {
-		"@heroui/react": "3.2.4",
-		"@heroui/styles": "3.2.4",
+		"@heroui/react": "3.2.5",
+		"@heroui/styles": "3.2.5",
 		"clsx": "2.1.1",
 		"intl-messageformat": "10.7.16",
 		"next": "16.2.6",
