@@ -39,7 +39,7 @@ export default function Home() {
 
       <div className="mt-8">
         <div className="flex items-center gap-2 rounded-xl bg-surface shadow-surface px-4 py-2">
-          <pre className="text-sm  font-mediumfont-mono">
+          <pre className="text-sm font-medium font-mono">
             Get started by editing{" "}
             <code className="px-2 py-1 h-fit font-mono font-normal inline whitespace-nowrap rounded-sm bg-accent/20 text-accent text-sm">
               app/page.tsx
