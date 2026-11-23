@@ -1,2 +1,5 @@
 allowBuilds:
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@heroui/react@3.2.8'
+  - '@heroui/styles@3.2.8'
